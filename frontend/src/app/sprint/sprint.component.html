@@ -1,0 +1,102 @@
+<div id="load" *ngIf="isload"></div>
+<div id="contents" *ngIf="!isload">
+<div class="body">
+  <div><app-navigation-bar></app-navigation-bar></div>
+  
+  <div class="sprint">
+    <div id="sidenav"><app-side-nav></app-side-nav></div>
+    <div class="whole">
+      <div class="main">
+        <div class="row">
+          <p style="margin-left: 15px;font-size: 20px"><b style="font-size: 30px">Sprint&nbsp;#{{sprint}}</b> - ({{sd}}&nbsp;{{sm}}&nbsp;{{sy}}&nbsp;-&nbsp;{{ed}}&nbsp;{{em}}&nbsp;{{ey}})</p>
+        </div>
+  
+      
+        <div class="two_buttons" >
+          <button class="btn btn-dark btn-square " style="margin-right:20px ;" (click)="issueModal()">
+            Create new Issue
+          </button>
+          <button type="button" class="btn btn-warning btn-square " data-toggle="modal" data-target="#Create_Sprint">
+            Create New Sprint  
+          </button>
+        </div>
+        <app-create-issue [hidden]="issueModalState"></app-create-issue>
+
+
+      </div>
+      <div class="display"><app-card></app-card></div>
+    </div>
+  </div>
+  
+  </div>
+</div>
+  
+  
+          
+  
+  
+  
+  <!-- Create Sprint Modal -->
+  <div class="modal fade" id="Create_Sprint" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body"  >
+  
+          <div class="row" style="padding-bottom: 15px;">
+            <div class="col">
+  
+              <h5 class="modal-title" id="exampleModalLabel">Create a new sprint</h5>
+            </div>
+            <div class="col">
+  
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+          </div>
+      
+          <form>
+            <div class="row">
+              <div class="form-group col-md-4">
+                <label for="Spirit_number">Sprint Number </label>
+                <input type="text" class="form-control" id="Sprint_Number" value={{+sprint+1}} readonly>
+              </div>
+            </div>  
+              <div class="row">
+  
+                
+                <div class="form-group col-md-4">
+                  <label for="Spirit_created">Sprint Created On</label>
+                  <input type="text" class="form-control" id="Sprint_Created" value={{currentDate}} readonly >
+                </div>
+                
+                <div class="form-group col-md-8 ml-auto">
+                  <label for="Created_by">Created By</label>
+                  <input type="text" class="form-control" id="Sprint_Created" value={{currentuser}} readonly>
+                </div>
+                
+              </div>
+              <div class="row">
+              <div class="form-group col-md-4">
+                  <label for="Spirit_Period">Sprint Period</label>
+                  <input type="text" class="form-control" id="Sprint_Period"  [(ngModel)]="sprintDays" [ngModelOptions]="{standalone: true}">
+              </div>
+  
+              <div class="form-group col-md-8 ml-auto">
+                  <label for="Spirit_Ends">Sprint Ends On</label>
+                  <input type="text" class="form-control" id="Sprint_Period" [(ngModel)]="sprintends" [ngModelOptions]="{standalone: true}" readonly>
+              </div>
+            </div>
+  
+           
+            </form>
+  
+  <!--Form to be displayed-->
+       </div>
+       <div class="modal-footer " >
+         <button type="button" class="btn btn-light " data-dismiss="modal">Cancel</button>
+         <button type="button" class="btn btn-warning" (click)="createNewSprint()">Create Sprint</button>
+       </div>
+     </div>
+   </div>
+  </div>

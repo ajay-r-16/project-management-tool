@@ -1,0 +1,109 @@
+<div class="scrolling-wrapper">
+
+  <div class="modal show"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-modal="true" style="display: block" >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-body" style="padding: 30px 30px;"> 
+            <div *ngIf="load" style="text-align: center"><div class="spinner-grow" role="status">
+              <span class="sr-only">Loading...</span>
+            </div></div>
+            <div *ngIf="!load">
+              <div class="row" style="padding-bottom: 15px;">
+                  <div class="col">
+                    
+                    <h5 class="modal-title" id="exampleModalLabel">{{issue_id}}</h5>
+                  </div>
+                  <div class="col">
+                    
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close_modal()">
+                      <span aria-hidden="true" class="caret float-right"  >&times;</span>
+                    </button>
+                  </div>
+                </div>
+                
+                <form>
+                  <div class="row">
+                    <div class="form-group col-md-12   ">
+                      <label for="Issue_heading">Issue Heading</label>
+                      <input type="text" class="form-control" id="Issue_Number" [(ngModel)]="heading" [ngModelOptions]="{standalone: true}">
+                    </div>
+                  </div>  
+                  <div class="row">
+                    
+                    <div class="form-group col-md-3">
+                      <label for="Created_by">Issue Priority</label>
+                      <div class="dropdown ">
+                        <!-- Margin left set to 0 -->
+                        <a class="btn btn-light btn-lg dropdown-toggle ml-0 bg-white float-left " href="#" role="button" id="IssueCreated" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                          {{issuepriority}}
+                        </a>
+                        
+                        <div class="dropdown-menu" aria-labelledby="IssueCreated">
+                          <li class="dropdown-item" (click)="prior('High')">High</li>
+                          <li class="dropdown-item" (click)="prior('Medium')">Medium</li>
+                          <li class="dropdown-item" (click)="prior('Low')">Low</li>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="form-group col-md-8 ml-auto">
+                      <label for="Reported">Reported By</label>
+                      <input type="text" class="form-control" id="Sprint_Created" placeholder="Current User Name" value={{reportedby}} readonly >
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-3">
+                      <label for="Spirit">Sprint</label>
+                      <input type="text" class="form-control" id="Sprint_Period" placeholder="" value={{sprintid}} readonly>
+                    </div>
+                    
+                    <div class="form-group col-md-3">
+                      <label for="Spirit">Fix version</label>
+                      <input type="text" class="form-control" id="fix_version"  [(ngModel)]="fixversion" [ngModelOptions]="{standalone: true}">
+                    </div>
+                    
+                    <div class="form-group col-md-3">
+                      <label for="Spirit">Story points</label>
+                      <input type="text" class="form-control" id="story_points" placeholder="" [(ngModel)]="points" [ngModelOptions]="{standalone: true}">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                    <label for="Spirit">Issue Reported On</label>
+                    <input type="text" class="form-control" id="Sprint_Period" placeholder="" value={{date}} readonly>
+                  </div>
+
+              </div>
+              <div class="row">
+                  <div class="form-group col-md-12">
+                    <label for="comment">Issue Description</label>
+                    <textarea class="form-control" rows="5" id="comment" [(ngModel)]="description" [ngModelOptions]="{standalone: true}"></textarea>
+                  </div>
+                  
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-12">
+                    <label for="Spirit">Assign it to</label>
+                    <input type="text" class="form-control" id="Assign_to" placeholder="admin or user" [(ngModel)]="assignedto" [ngModelOptions]="{standalone: true}">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-groud col-md-12">
+                    <label for="Spirit">Status</label><br>
+                    <button type="button " class="btn status op ml-0" (click)='statusassign("OPEN")'>Open</button>
+                    <button type="button " class="btn status pro" (click)='statusassign("IN PROGRESS")' >In Progress</button>
+                    <button type="button " class="btn status cl" (click)='statusassign("CLOSED")'>Close</button>
+                  </div>
+              </div>
+              
+              
+              <!--Form to be displayed-->
+              <div class="row pt-5 float-right" >
+                <button type="button" class="btn btn-light btn-lg" (click)="close_modal()">Cancel</button>
+                <button type="button" class="btn btn-warning btn-lg" (click)="updateIssue()">Update Issue</button>
+              </div>
+            </form></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

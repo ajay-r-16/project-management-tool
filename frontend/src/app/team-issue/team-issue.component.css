@@ -1,0 +1,223 @@
+.body{
+  width: 100%;
+  height: 100%;
+}
+
+.sprint{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+.whole{
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  overflow: hidden;
+  margin-right: 20px;
+  margin-left: 35px;
+  font-family:" Open Sans, sans-serif";
+}
+#load{
+  width:100%;
+  height:100%;
+  position:fixed;
+  bottom:30px;
+  z-index:9999;
+  background:url("https://www.creditmutuel.fr/cmne/fr/banques/webservices/nswr/images/loading.gif") no-repeat center center rgba(0,0,0,0.25)
+}
+
+
+.main{
+  height: 75px;
+  position: relative;
+}
+.droplabel{
+  position: absolute;
+  top: 30px;
+  left:180px;
+}
+.dropdown{
+  position: absolute;
+  top: 20px;
+  left: 320px;
+}
+.heading{
+  position: absolute;
+  top:20px;
+}
+.button{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+  
+.dropdown{
+  z-index: 2;
+  align-self: center;
+}
+.dropdown .btn{
+  z-index: 2;
+  border-radius: 0px;
+  background-color: white;
+  border-color: rgba(153, 148, 148, 0.185);
+  border-style: solid;
+  width:250px;
+  height: 35px;
+} 
+.dropdown-toggle::after{
+
+  vertical-align: auto;
+  position: absolute;
+  top:15px;
+  right: 10px;
+}
+
+.dropdown-menu{
+  z-index: 2;
+  width:300px;
+  font-size:15px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius:0px;
+}
+
+.Avail_lang{
+  font-size: 12px;
+  padding-top: 10px;
+  margin-bottom: 0px;
+  margin-top:0px;
+}
+
+.dropdown-divider{
+  position: relative;
+  width: 100%; 
+}
+#lang{
+  font-size: 12px;
+  margin-left: 0px; 
+  padding-right: 30px;
+  border-radius: 0px;
+  padding-bottom: 12px;
+}
+
+#d_lang{
+  padding-left:0px;
+  padding-bottom: 0px;
+
+}
+
+#lang_div{
+  margin-bottom:0px
+}
+
+
+.show{
+  align-self: center;
+}
+  .two_buttons{
+    margin-left: auto;
+    padding-right: 5px;
+  }
+ 
+ 
+
+  
+
+
+
+
+
+.btn.btn-lg{
+  font-size: 13px;
+  border-radius: 0px
+}
+
+
+
+
+
+@media only screen and (max-width: 850px){
+  .main{
+    height: 180px;
+  }
+  .droplabel{
+    position: absolute;
+    top: 70px;
+    left:0px;
+  }
+  .dropdown{
+    position: absolute;
+    top: 70px;
+    left: 130px;
+  }
+  .heading{
+    position: absolute;
+    top:20px;
+  }
+  .dropdown2{
+    position: absolute;
+    top: 110px;
+    left: 130px;
+  }
+.droplabel2{
+  top: 120px;
+  position: absolute;
+  left: 0px;
+}
+.button{
+  right: 0px;
+}
+.btn{
+  font-size: 10px;
+  width: 100px;
+  height: 30px
+}
+
+}
+
+@media only screen and (max-width: 650px){
+    .button{
+      left: 380px;
+    }
+    .dropdown-menu{
+      width:fit-content;
+      height:fit-content;
+    }
+}
+
+@media only screen and (max-width: 600px){
+  .dropdown .btn,.dropdown2 .btn{
+    width:120px;
+    height: 35px;
+  }
+  .button{
+    left: 300px;
+  }
+}
+@media only screen and (max-width: 450px){
+  .main{
+
+    height: 220px;
+  }
+  .button{
+    top:60px;
+    left: 0px;
+   
+  }
+  .droplabel{
+    top: 100px;
+    left:0px;
+  }
+  .dropdown{
+    top: 125px;
+    left: 0px;
+  }
+  
+
+.btn{
+  font-size: 10px;
+  width: 100px;
+  height: 30px
+}
+}

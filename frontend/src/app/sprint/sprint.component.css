@@ -1,0 +1,110 @@
+.body{
+  width: 100%;
+  height: 100%;
+}
+#sidenav{
+  width: 70px;
+}
+#load{
+  width:100%;
+  height:100%;
+  position:fixed;
+  z-index:9999;
+  background:url("https://www.creditmutuel.fr/cmne/fr/banques/webservices/nswr/images/loading.gif") no-repeat center center rgba(0,0,0,0.25)
+}
+
+.sprint{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+.whole{
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  overflow: hidden;
+  margin-right: 20px;
+  margin-left: 35px;
+  font-family:" Open Sans, sans-serif";
+}
+
+
+.main {
+  margin-top: 20px;
+  display: flex;
+  overflow: hidden;
+  width: auto;
+  height: 45px;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 0px;
+  font-family:" Open Sans, sans-serif";
+  }
+  .row{
+    margin-right: auto;
+    padding-left: 0px;
+    align-content: flex-start;
+  }
+  .two_buttons{
+    padding-right: 5px;
+  }
+  .display{
+    margin-top: 10px;
+  }
+ 
+
+  
+
+.modal-body{
+  font-size: 13px;
+}
+
+.head_title{
+
+  font-size: 15px;
+
+}
+
+
+
+.btn.btn-lg{
+  font-size: 13px;
+  border-radius: 0px
+}
+
+.modal-footer{
+
+  border: none;
+}
+
+
+
+
+
+
+@media only screen and (max-width: 900px){
+  .btn{
+    width: 110px;
+    height:30px;
+    font-size: 8px;
+  }
+  .main{
+    height: 110px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .dropdown-menu{
+    width:fit-content;
+    height:fit-content;
+  }
+  
+
+  
+}
+@media only screen and (max-width: 350px){
+  .btn{
+    font-size: 7px;
+    width: 80px;
+  }
+}

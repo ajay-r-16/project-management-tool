@@ -1,0 +1,82 @@
+  .modal{
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.3); /* Black w/ opacity */
+  }
+
+  .modal-body{
+    font-size: 13px;
+    max-height: 600px;
+    overflow-y: auto;
+ 
+  }
+  
+  .head_title{
+  
+    font-size: 15px;
+  
+  }
+  .dropdown .btn
+  {
+    width:100px;
+    text-align: right;
+  
+  }
+  .dropdown-toggle{
+    float:right;
+    width:100px;
+  }
+
+ 
+
+  .btn.status{
+    width:125px;
+  }
+  
+  .btn{
+    margin-right: 10px;
+    margin-left:10px;
+    margin-bottom: 10px;
+    border-radius: 0;
+}
+  
+  .btn.btn-lg{
+    font-size: 13px;
+    border-radius: 0px
+  }
+  
+  .modal-footer{
+  
+    border: none;
+  }
+
+  .modal-body::-webkit-scrollbar {
+    width: 0.5rem;    
+    padding:10px;
+    background-color: rgba(128, 128, 128, 0.459);
+  }
+  .modal-body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px rgba(119, 118, 118, 0.158);
+
+  }
+  .modal-body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.671);
+  border-radius:5px;
+  
+  }
+
+.pro{
+  background-color: rgba(9, 219, 9, 0.459);
+}
+.op{
+  background-color: rgba(53, 221, 221, 0.616);
+}
+.qa{
+  background-color: rgba(241, 241, 66, 0.589);
+}
+.cl{
+  background-color: rgba(255, 160, 122, 0.493);
+}
+.reo{
+  background-color: rgba(240, 128, 128, 0.493);
+
+}

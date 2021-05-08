@@ -1,0 +1,186 @@
+
+
+<div (window:resize)="change($event)">
+  <div *ngIf="!res">
+    <div class="main">
+  
+  <div class="card ">
+    <div class="card-body">
+        <div *ngIf="card.isload" id="load"></div>
+        <div *ngIf="!card.isload">
+  <p>Open/unassigned Issues - <span style="background-color:rgba(22, 64, 126, 0.959)" class="badge badge-pill badge-primary">{{card.open.length}}</span></p>
+  <div class="scrolling-wrapper open">
+      <div *ngFor="let item of card.open">
+          <div class="card ml-3  mb-3 pl-2 pt-2 pb-2 pr-2" style="width:24rem;" (click)="click(item.issue_id)">
+            <!-- replace all the below cards with these margins and paddings -->
+            <div class="card-titles">
+              <!-- Close Button -->
+                <button type="button" class="close" aria-label="Close" style="float: right; font-size:1.3rem">
+                    <span class="mt-0" aria-hidden="true">&times;</span>
+                  </button>
+                <h6>{{item.issue_id}}</h6>
+            </div>
+            <div class="card-body>">
+                <div class="container">
+                    <div class="row" style="display: none" id='sprint_id'>{{item.issue_id}}</div>
+                    <div class="row"><span class="priority" style="color: white;padding: 0px 5px;" [ngStyle]="{'background-color':color[item.priority]}"> {{item.priority}} </span></div>
+                    <div class="row">Assigned to: {{card.useridlist[item.assignedto]}}</div>
+                    <div class="row">Reported by: {{card.useridlist[item.reportedby]}}</div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          
+                
+  </div>
+  
+  
+  <br>
+  
+  <p>Inprogress Issue - <span style="background-color: rgba(43, 194, 43, 0.938)" class="badge badge-pill badge-primary">{{card.progress.length}}</span></p>
+  <div class="scrolling-wrapper inprogress">
+    <div *ngFor="let item of card.progress">
+      <div class="card ml-3  mb-3 pl-2 pt-2 pb-2 pr-2" style="width:24rem;" (click)="click(item.issue_id)">
+        <div class="card-titles">
+          <!-- Close Button -->
+            <button type="button" class="close" aria-label="Close" style="float: right; font-size:1.3rem">
+                <span class="mt-0" aria-hidden="true">&times;</span>
+              </button>
+            <h6>{{item.issue_id}}</h6>
+        </div>
+        <div class="card-body>">
+            <div class="container">
+                <div class="row"><span class="priority" style="color: white;padding: 0px 5px;" [ngStyle]="{'background-color':color[item.priority]}"> {{item.priority}} </span></div>
+                <div class="row">Assigned to: {{card.useridlist[item.assignedto]}}</div>
+                <div class="row">Reported by: {{card.useridlist[item.reportedby]}}</div>
+            </div>
+        </div>
+      </div>
+      </div>
+    </div>
+      
+  <br>
+  <p>Closed Issue - <span style="background-color: rgb(138, 94, 1)" class="badge badge-pill badge-primary">{{card.closed.length}}</span></p>
+  <div class="scrolling-wrapper closed">
+    <div *ngFor="let item of card.closed">
+      <div class="card ml-3  mb-3 pl-2 pt-2 pb-2 pr-2" style="width:24rem;" (click)="click(item.issue_id)">
+        <div class="card-titles">
+          <!-- Close Button -->
+            <button type="button" class="close" aria-label="Close" style="float: right; font-size:1.3rem">
+                <span class="mt-0" aria-hidden="true">&times;</span>
+              </button>
+            <h6>{{item.issue_id}}</h6>
+        </div>
+        <div class="card-body>">
+            <div class="container">
+                <div class="row"><span class="priority" style="color: white;padding: 0px 5px;" [ngStyle]="{'background-color':color[item.priority]}"> {{item.priority}} </span></div>
+                <div class="row">Assigned to: {{card.useridlist[item.assignedto]}}</div>
+                <div class="row">Reported by: {{card.useridlist[item.reportedby]}}</div>
+            </div>
+        </div>
+      </div>
+      </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  
+  <div *ngIf="res">
+    <div class="main">
+      <div class="card">
+        <div class="card-body">
+            <div *ngIf="card.isload" id="load"></div>
+            <div *ngIf="!card.isload">
+    <ngb-accordion [closeOthers]="false" activeIds="static-1">
+      <ngb-panel id="static-1" title="Open/Unassigned Issues - {{card.open.length}}">
+        <ng-template ngbPanelContent>
+            <div class="scrolling-wrapper open">
+                <div *ngFor="let item of card.open">
+                    <div class="card ml-3  mb-3 pl-2 pt-2 pb-2 pr-2" style="width:18rem;" (click)="click(item.issue_id)">
+                      <!-- replace all the below cards with these margins and paddings -->
+                      <div class="card-titles">
+                        <!-- Close Button -->
+                          <button type="button" class="close" aria-label="Close" style="float: right; font-size:1.3rem">
+                              <span class="mt-0" aria-hidden="true">&times;</span>
+                            </button>
+                          <h6>{{item.issue_id}}</h6>
+                      </div>
+                      <div class="card-body>">
+                          <div class="container">
+                            
+                              <div class="row">{{item.priority}}</div>
+                              <div class="row">Assigned to: {{card.useridlist[item.assignedto]}}</div>
+                              <div class="row">Reported by: {{card.useridlist[item.reportedby]}}</div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+              </div>
+        </ng-template>
+      </ngb-panel>
+      
+      
+      <ngb-panel id="static-2" title="In Progress Issues - {{card.progress.length}}">
+        <ng-template ngbPanelContent>
+            <div class="scrolling-wrapper inprogress">
+                <div *ngFor="let item of card.progress">
+                  <div class="card ml-3  mb-3 pl-2 pt-2 pb-2 pr-2" style="width:18rem;" (click)="click(item.issue_id)">
+                    <div class="card-titles">
+                      <!-- Close Button -->
+                        <button type="button" class="close" aria-label="Close" style="float: right; font-size:1.3rem">
+                            <span class="mt-0" aria-hidden="true">&times;</span>
+                          </button>
+                        <h6>{{item.issue_id}}</h6>
+                    </div>
+                    <div class="card-body>">
+                        <div class="container">
+                            <div class="row">{{item.priority}}</div>
+                            <div class="row">Assigned to: {{card.useridlist[item.assignedto]}}</div>
+                            <div class="row">Reported by: {{card.useridlist[item.reportedby]}}</div>
+                        </div>
+                    </div>
+                  </div>
+                  </div>
+              </div>
+        </ng-template>
+      </ngb-panel>
+      <ngb-panel id="static-3" title="Closed Issues - {{card.closed.length}}">
+        <ng-template ngbPanelContent>
+            <div class="scrolling-wrapper closed">
+                <div *ngFor="let item of card.closed">
+                    <div class="card ml-3  mb-3 pl-2 pt-2 pb-2 pr-2" style="width:18rem;" (click)="click(item.issue_id)">
+                      <!-- replace all the below cards with these margins and paddings -->
+                      <div class="card-titles">
+                        <!-- Close Button -->
+                          <button type="button" class="close" aria-label="Close" style="float: right; font-size:1.3rem">
+                              <span class="mt-0" aria-hidden="true">&times;</span>
+                            </button>
+                          <h6>{{item.issue_id}}</h6>
+                      </div>
+                      <div class="card-body>">
+                          <div class="container">
+                            
+                              <div class="row">{{item.priority}}</div>
+                              <div class="row">Assigned to: {{card.useridlist[item.assignedto]}}</div>
+                              <div class="row">Reported by: {{card.useridlist[item.reportedby]}}</div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+              </div>
+        </ng-template>
+      </ngb-panel>
+      
+    </ngb-accordion>
+  </div>
+  </div>
+  </div>
+  </div></div></div>
+  <router-outlet></router-outlet>
+  
+  <div *ngIf="!card.test"><app-card-modal></app-card-modal></div>
+
+

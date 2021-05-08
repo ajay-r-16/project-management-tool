@@ -1,0 +1,53 @@
+<div *ngIf="isload" id="load"></div>
+<div *ngIf="!isload">
+<div class="body">
+  <div><app-navigation-bar></app-navigation-bar></div>
+  
+  <div class="sprint">
+    <div id="sidenav"><app-side-nav></app-side-nav></div>
+    <div class="whole">
+        <div class="main">
+            <h2 class="heading">Team Issues</h2>
+            <h6 class="droplabel"><b>Showing Issues of</b></h6>
+          
+            <div class="dropdown">
+                <button style="font-size: 15px;width: 190px" class="btn btn-light btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 {{team}}
+                </button>
+                <div class="dropdown-menu shadow sticky-top" aria-labelledby="dropdownMenuOffset">
+                
+                    <div class="dropdown-item" id="d_lang">
+                        <div class="form-group" >
+                            <input type="text" class="form-control" id="lang" placeholder="Search for teams" >
+                          </div>  
+              
+              
+                    </div>
+                    <div class="dropdown-divider" id="lang_div"></div>
+              
+              
+                    <div class="dropdown-item-text text-muted " style="padding-left:10px; padding-top:0px;" >
+                          <p class="Avail_lang">
+                            <b>Project Teams</b>
+                          </p>
+                        </div>
+                    <div *ngFor="let teams of teamlist">
+                    <button type="menu" (click)="selectteam(teams[1])" class="dropdown-item">{{teams[1]}}</button>
+                    <div class="dropdown-divider"></div>
+                    </div>
+                    
+                  </div>
+            </div>
+      
+            <div class="button"><button class="btn btn-dark btn-square " style="margin-right:20px ;"  (click)="issueModal()">
+                Create new Issue
+              </button></div>
+  
+      </div>
+      <div class="display"><app-card></app-card></div>
+    </div>
+  </div>
+  
+  </div>
+</div>
+  <app-create-issue [hidden]="issueModalState"></app-create-issue>

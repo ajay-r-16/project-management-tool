@@ -1,0 +1,85 @@
+<div id="load" *ngIf="isload"></div>
+<div *ngIf="!isload">
+<div class="body">
+<div class="side"><app-navigation-bar></app-navigation-bar></div>
+<div class="issue">
+<app-side-nav></app-side-nav>
+<div class="whole">
+<div class="main">
+  <h2 class="heading">Issues</h2>
+  <h6 class="droplabel"><b>Showing sprint</b></h6>
+  <app-create-issue [hidden]="issueModalState"></app-create-issue>
+
+  <div class="dropdown">
+      <button style="font-size: 15px;" class="btn btn-light btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       {{sprint}}
+      </button>
+      <div class="dropdown-menu shadow sticky-top" aria-labelledby="dropdownMenuOffset">
+      
+          <div class="dropdown-item" id="d_lang">
+              <div class="form-group" >
+                  <input type="text" class="form-control" id="lang" placeholder="Search for sprint" >
+                </div>  
+    
+    
+          </div>
+          <div class="dropdown-divider" id="lang_div"></div>
+    
+    
+          <div class="dropdown-item-text text-muted " style="padding-left:10px; padding-top:0px;" >
+                <p class="Avail_lang">
+                  <b>last 5 sprints</b>
+                </p>
+              </div>
+          <div *ngFor="let sprints of sprintlist">
+          <button type="menu" (click)="selectsprint(sprints)" class="dropdown-item">sprint {{sprints}}</button>
+          <div class="dropdown-divider"></div>
+          </div>
+          
+        </div>
+  </div>
+
+  <h6 class="droplabel2"><b>Showing issues of </b></h6>
+
+  <div class="dropdown2">
+      <button style="font-size: 15px" class="btn btn-light btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       {{user}}
+      </button>
+      <div class="dropdown-menu shadow sticky-top" aria-labelledby="dropdownMenuOffset">
+      
+          <div class="dropdown-item" id="d_lang">
+              <div class="form-group" >
+                  <input type="text" class="form-control" id="lang" placeholder="Search for sprint" >
+                </div>  
+    
+    
+          </div>
+          <div class="dropdown-divider" id="lang_div"></div>
+    
+    
+          <div class="dropdown-item-text text-muted " style="padding-left:10px; padding-top:0px;" >
+                <p class="Avail_lang">
+                  <b>Project Members</b>
+                </p>
+              </div>
+          <div *ngFor="let users of userlist">
+          <button type="menu" (click)="selectuser(users[1])" class="dropdown-item">{{users[1]}}</button>
+          <div class="dropdown-divider"></div>
+          </div>
+          
+        </div>
+  </div>
+      <div class="button"><button class="btn btn-dark btn-square " style="margin-right:10px ;" (click)="issueModal()">
+        Create new Issue
+      </button></div>
+    
+  </div>
+     <div *ngIf="!data.isload" class="box1">
+      <h1 style="text-align: center;color: rgb(26, 189, 26);font-size: 60px"><b>{{days}}</b></h1><br>
+      <h5 style="text-align: center;padding-bottom: 20px">Days Remaining</h5>
+  </div>
+  <div class="display"><app-card></app-card></div>
+</div>
+</div>
+</div></div>
+
